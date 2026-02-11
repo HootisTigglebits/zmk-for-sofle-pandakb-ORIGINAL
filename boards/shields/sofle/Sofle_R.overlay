@@ -15,9 +15,10 @@
         ;
 };
 
-# TEMP: disable encoders while debugging
-#&right_encoder {
-    #status = "okay";
+/* TEMP: disable encoders while debugging */
+/*
+&right_encoder {
+    status = "okay";
 };
 */
 
@@ -31,7 +32,6 @@
      };
  };
 
-# TEMP
 &pro_micro_i2c {
     status = "disabled";
 };
