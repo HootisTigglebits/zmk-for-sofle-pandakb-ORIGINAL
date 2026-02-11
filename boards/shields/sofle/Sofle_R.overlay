@@ -15,8 +15,6 @@
         ;
 };
 
-/* TEMP: disable encoders while debugging */
-/*
 &right_encoder {
     status = "okay";
 };
@@ -36,6 +34,13 @@
     status = "disabled";
 };
 
-&oled {
-    status = "disabled";
+/ {
+  chosen {
+    # override the chosen display: remove it for the right half
+    #delete-property/ zephyr,display;
+  };
+};
+
+&pro_micro_i2c {
+  status = "disabled";
 };
