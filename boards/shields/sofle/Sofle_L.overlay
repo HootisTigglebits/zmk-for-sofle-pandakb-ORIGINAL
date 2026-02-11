@@ -11,7 +11,7 @@
         ;
 };
 
-/* TEMP: disable encoders while debugging */
+# TEMP: disable encoders while debugging */
 /*
 &left_encoder {
     status = "okay";
