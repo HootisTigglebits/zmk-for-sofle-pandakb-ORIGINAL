@@ -1,11 +1,12 @@
 #include "Sofle.dtsi"
 
+/* Offset right half into columns 6–11 */
 &default_transform {
     col-offset = <6>;
 };
 
+/* Reverse column order for mirrored right half */
 &kscan0 {
-    /* Right half is mirrored: reverse column order */
     col-gpios
         = <&pro_micro 10 GPIO_ACTIVE_HIGH>
         , <&pro_micro 16 GPIO_ACTIVE_HIGH>
@@ -17,23 +18,15 @@
 };
 
 /* Disable encoders while debugging */
-/*
 &right_encoder {
-    status = "okay";
+    status = "disabled";
 };
-*/
 
-/* Remove chosen display on the right half */
+/* Remove display + underglow from chosen */
  / {
     chosen {
         /delete-property/ zephyr,display;
-    };
-
-    chosen {
         /delete-property/ zmk,underglow;
-    };
-
-    chosen {
         zmk,battery = &vbatt;
     };
 
@@ -42,6 +35,7 @@
     };
 };
 
+/* Disable I2C bus (OLED) on right half */
 &pro_micro_i2c {
     status = "disabled";
 };
