@@ -5,6 +5,7 @@
 };
 
 &kscan0 {
+    /* Right half is mirrored: reverse column order */
     col-gpios
         = <&pro_micro 10 GPIO_ACTIVE_HIGH>
         , <&pro_micro 16 GPIO_ACTIVE_HIGH>
@@ -15,32 +16,32 @@
         ;
 };
 
+/* Disable encoders while debugging */
+/*
 &right_encoder {
     status = "okay";
 };
 */
 
+/* Remove chosen display on the right half */
  / {
-     chosen {
-         zmk,battery = &vbatt;
-     };
+    chosen {
+        /delete-property/ zephyr,display;
+    };
 
-     vbatt: vbatt {
-         compatible = "zmk,battery-nrf-vddh";
-     };
- };
+    chosen {
+        /delete-property/ zmk,underglow;
+    };
+
+    chosen {
+        zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
+};
 
 &pro_micro_i2c {
     status = "disabled";
-};
-
-/ {
-  chosen {
-    # override the chosen display: remove it for the right half
-    #delete-property/ zephyr,display;
-  };
-};
-
-&pro_micro_i2c {
-  status = "disabled";
 };
