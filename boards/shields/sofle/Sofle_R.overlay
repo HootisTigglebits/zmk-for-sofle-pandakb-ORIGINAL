@@ -1,10 +1,8 @@
-/*
- * Copyright (c) 2020 Ryan Cross
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include "Sofle.dtsi"
+
+&default_transform {
+    col-offset = <6>; /* left side has 6 columns */
+};
 
 &kscan0 {
     col-gpios
@@ -17,7 +15,7 @@
         ;
 };
 
-&left_encoder {
+&right_encoder {
     status = "okay";
 };
 / {
