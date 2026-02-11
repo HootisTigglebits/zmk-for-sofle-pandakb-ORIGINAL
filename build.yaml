@@ -8,6 +8,9 @@ include:
   - board: nice_nano_v2
     shield: Sofle_R nice_oled
     artifact-name: Sofle_right_oled
+  - board: nice_nano_v2
+    shield: Sofle_R
+    artifact-name: Sofle_right_debug
 
   - board: nice_nano_v2
     shield: settings_reset
