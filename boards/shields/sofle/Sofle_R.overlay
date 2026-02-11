@@ -5,6 +5,7 @@
 };
 
 &kscan0 {
+    /* reversed column order for right half */
     col-gpios
         = <&pro_micro 10 GPIO_ACTIVE_HIGH>
         , <&pro_micro 16 GPIO_ACTIVE_HIGH>
@@ -15,16 +16,19 @@
         ;
 };
 
+/* TEMP: disable encoders while debugging */
+/*
 &right_encoder {
     status = "okay";
 };
+*/
 
-/ {
-    chosen {
-      zmk,battery = &vbatt;
-    };
+ / {
+     chosen {
+         zmk,battery = &vbatt;
+     };
 
-    vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
-    };
-};
+     vbatt: vbatt {
+         compatible = "zmk,battery-nrf-vddh";
+     };
+ };
