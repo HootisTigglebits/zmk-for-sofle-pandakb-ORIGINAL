@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020 Ryan Cross
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include "Sofle.dtsi"
 
 &kscan0 {
@@ -17,15 +11,19 @@
         ;
 };
 
-#&left_encoder {
-#    status = "okay";
-#};
-/ {
-    chosen {
-      zmk,battery = &vbatt;
-    };
-
-    vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
-    };
+/* TEMP: disable encoders while debugging */
+/*
+&left_encoder {
+    status = "okay";
 };
+*/
+
+ / {
+     chosen {
+         zmk,battery = &vbatt;
+     };
+
+     vbatt: vbatt {
+         compatible = "zmk,battery-nrf-vddh";
+     };
+ };
