@@ -1,11 +1,15 @@
 #include "Sofle.dtsi"
 
-/* Offset right half into columns 6–11 */
+/*
+ * Right half (peripheral)
+ * - Map right-half keys into columns 6–11 of the combined transform.
+ * - Reverse column order to match mirrored Sofle PCB wiring.
+ */
+
 &default_transform {
     col-offset = <6>;
 };
 
-/* Reverse column order for mirrored right half */
 &kscan0 {
     col-gpios
         = <&pro_micro 10 GPIO_ACTIVE_HIGH>
@@ -17,25 +21,17 @@
         ;
 };
 
-/* Disable encoders while debugging */
+# Enable the right encoder (or leave disabled if you don't have one).
 &right_encoder {
-    status = "disabled";
+    status = "okay";
 };
 
-/* Remove display + underglow from chosen */
  / {
     chosen {
-        /delete-property/ zephyr,display;
-        /delete-property/ zmk,underglow;
         zmk,battery = &vbatt;
     };
 
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
     };
-};
-
-/* Disable I2C bus (OLED) on right half */
-&pro_micro_i2c {
-    status = "disabled";
 };
