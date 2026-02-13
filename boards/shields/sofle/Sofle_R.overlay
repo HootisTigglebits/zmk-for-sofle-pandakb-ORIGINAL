@@ -21,7 +21,7 @@
         ;
 };
 
-# Enable the right encoder (or leave disabled if you don't have one).
+/* Enable the right encoder (or leave disabled if you don't have one). */
 &right_encoder {
     status = "okay";
 };
