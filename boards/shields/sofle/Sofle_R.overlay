@@ -1,15 +1,11 @@
 #include "Sofle.dtsi"
 
-/*
- * Right half (peripheral)
- * - Map right-half keys into columns 6–11 of the combined transform.
- * - Reverse column order to match mirrored Sofle PCB wiring.
- */
-
+/* Right half is columns 6–11 in the 12-col transform */
 &default_transform {
     col-offset = <6>;
 };
 
+/* Right-side matrix column GPIOs (mirrored order) */
 &kscan0 {
     col-gpios
         = <&pro_micro 10 GPIO_ACTIVE_HIGH>
@@ -21,12 +17,13 @@
         ;
 };
 
-/* Enable the right encoder (or leave disabled if you don't have one). */
+/* Enable right encoder if you use it (optional)
 &right_encoder {
     status = "okay";
 };
+*/
 
- / {
+/ {
     chosen {
         zmk,battery = &vbatt;
     };
