@@ -1,5 +1,6 @@
 #include "Sofle.dtsi"
 
+/* Left-side matrix column GPIOs */
 &kscan0 {
     col-gpios
         = <&pro_micro 19 GPIO_ACTIVE_HIGH>
@@ -11,18 +12,18 @@
         ;
 };
 
-/*
+/* Enable left encoder if you use it (optional)
 &left_encoder {
     status = "okay";
 };
 */
 
  / {
-     chosen {
-         zmk,battery = &vbatt;
-     };
+    chosen {
+        zmk,battery = &vbatt;
+    };
 
-     vbatt: vbatt {
-         compatible = "zmk,battery-nrf-vddh";
-     };
- };
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
+};
