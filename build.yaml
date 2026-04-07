@@ -9,14 +9,4 @@ include:
     artifact-name: Sofle_right_oled
 
   - board: nice_nano_v2
-    shield: Sofle_L
-    snippet: zmk-usb-logging
-    artifact-name: Sofle_left_debug
-
-  - board: nice_nano_v2
-    shield: Sofle_R
-    snippet: zmk-usb-logging
-    artifact-name: Sofle_right_debug
-
-  - board: nice_nano_v2
     shield: settings_reset
